@@ -1,0 +1,130 @@
+.premium-btn {
+  position: relative;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.premium-btn__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.premium-btn__shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+.premium-btn:hover .premium-btn__shine {
+  left: 100%;
+}
+
+/* Primary Variant - Glassmorphism */
+.premium-btn--primary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-glass);
+  color: var(--text-primary);
+}
+
+.premium-btn--primary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 
+    var(--shadow-glass),
+    0 0 30px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Neon Variant */
+.premium-btn--neon {
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  border: 1px solid var(--neon-blue);
+  box-shadow: 
+    0 0 20px rgba(0, 212, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.premium-btn--neon:hover {
+  box-shadow: 
+    0 0 30px rgba(0, 212, 255, 0.6),
+    0 0 60px rgba(124, 58, 237, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Glowing Effect */
+.premium-btn--glowing {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 
+      0 0 20px rgba(0, 212, 255, 0.4),
+      var(--shadow-glass);
+  }
+  to {
+    box-shadow: 
+      0 0 30px rgba(0, 212, 255, 0.6),
+      0 0 60px rgba(124, 58, 237, 0.3),
+      var(--shadow-glass);
+  }
+}
+
+/* Sizes */
+.premium-btn--small {
+  padding: 12px 24px;
+  font-size: 14px;
+  border-radius: 12px;
+}
+
+.premium-btn--medium {
+  padding: 16px 32px;
+  font-size: 16px;
+  border-radius: 16px;
+}
+
+.premium-btn--large {
+  padding: 20px 40px;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+/* Disabled State */
+.premium-btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
